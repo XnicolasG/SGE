@@ -7,12 +7,47 @@ public class Program {
 
     public static void main(String[] args) {
 
-        Program.RegistrarEstudiante();
+        Scanner sc = new Scanner(System.in);
+
+        int option;
+        do {
+            System.out.println("Selecciona que deseas hacer.");
+            System.out.println("1. Registrar estudiante.");
+            if (contador != 0){
+                System.out.println("2. Mostrar listado de estudiantes.");
+                System.out.println("3. Filtrar estudiantes por ID");
+            } 
+            System.out.println("0. Salir.");
+
+            option = sc.nextInt();
+            sc.nextLine();
+
+            if (option == 1)
+                Program.RegistrarEstudiante();
+            else if (option == 2)
+                Program.MostrarEstudiantes();
+            else if (option == 3){
+                Program.FiltrarEstudiantes(null);
+            }
+        } while (option != 0);
+        sc.close();
+        
+    }
+
+    public static void FiltrarEstudiantes(String id) {
+        
 
     }
 
-    public static void MostrarEstudiantes(){
-
+    public static void MostrarEstudiantes() {
+        if (contador != 0) {
+            System.out.println("Hay " + contador + "/5 estudiantes registrados:");
+            for (Estudiante estudiante : estudiantes) {
+                System.out.println(estudiante);
+            }
+        }else{
+                System.out.println("Aun no hay estudiantes registrados.");
+        }
     }
 
     public static void RegistrarEstudiante() {
@@ -31,7 +66,7 @@ public class Program {
 
         System.out.println(estudiantes[contador]);
         contador++;
-        sc.close();
+        // sc.close();
     }
 
 }
