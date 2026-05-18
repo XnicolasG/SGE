@@ -112,7 +112,7 @@ public class Program {
 
         Scanner sc = new Scanner(System.in);
 
-        if (contador <= 5) {
+        if (contador < 5) {
 
             System.out.println("Ingrese nombre de estudiante");
             String nombre = sc.nextLine();
