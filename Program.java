@@ -2,15 +2,23 @@ import java.util.Scanner;
 
 public class Program {
 
+    /*
+     * Iniciación de un array limitado a 5 datos con tipo Estudiantes y variable
+     * estatica contador para ser
+     * usado en cualqueri metodo dentro del objeto.
+     */
     static Estudiante[] estudiantes = new Estudiante[5];
     static int contador = 0;
 
     /*
-    Por Medio de un do while se ofrece al usuario un menú de posibles opciones, algunas de ellas disponibles
-    desde un principio, otras una vez ya existe un registro ya que de otra manera no tiene sentido ofrecerlas
-    si no van a tener con que interactuar. Así mismo se implementa un try/catch para evitar que se Ingresen
-    letras o simbolos diferentes a los numeros de las opciones del menú.
-    */
+     * Por Medio de un do while se ofrece al usuario un menú de posibles opciones,
+     * algunas de ellas disponibles
+     * desde un principio, otras una vez ya existe un registro ya que de otra manera
+     * no tiene sentido ofrecerlas
+     * si no van a tener con que interactuar. Así mismo se implementa un try/catch
+     * para evitar que se Ingresen
+     * letras o simbolos diferentes a los numeros de las opciones del menú.
+     */
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -38,7 +46,7 @@ public class Program {
 
             if (option == 1)
                 Program.RegistrarEstudiante();
-            if (contador !=0) {
+            if (contador != 0) {
                 if (option == 2)
                     Program.MostrarEstudiantes();
                 else if (option == 3) {
@@ -53,16 +61,19 @@ public class Program {
 
     }
     /*
-    El metodo FiltrarEstudiantes se encarga de pedir el ID a buscar, si coincide con los registros este lo imprime
-    iterando por medio de un ciclo for, de no ser encontrado el programa se encarga de hacerlo saber al usuario
-    */
+     * El metodo FiltrarEstudiantes se encarga de pedir el ID a buscar, si coincide
+     * con los registros este lo imprime
+     * iterando por medio de un ciclo for, de no ser encontrado el programa se
+     * encarga de hacerlo saber al usuario
+     */
 
     public static void FiltrarEstudiantes() {
         Scanner sc = new Scanner(System.in);
-        String id = sc.nextLine();
         boolean IdEncontrado = false;
+        
+        System.out.println("Ingresa le ID del estudiante:");
+        String id = sc.nextLine();
 
-        System.err.println("Ingresa le ID del estudiante:");
         for (int i = 0; i < contador; i++) {
             Estudiante estudianteActual = estudiantes[i];
 
@@ -76,10 +87,12 @@ public class Program {
             System.out.println("No se ha encontrado algun estudiante con ese ID");
         }
     }
-/*
-El metodo MostrarEstudiantes se encarga de mostrar cuantos estudiantes se encuentran registrados y cuales por medio 
-de una iteración usando el metodo foreach
-*/
+
+    /*
+     * El metodo MostrarEstudiantes se encarga de mostrar cuantos estudiantes se
+     * encuentran registrados y cuales por medio
+     * de una iteración usando el metodo foreach
+     */
     public static void MostrarEstudiantes() {
         System.out.println("Hay " + contador + "/5 estudiantes registrados:");
         for (Estudiante estudiante : estudiantes) {
@@ -89,10 +102,12 @@ de una iteración usando el metodo foreach
     }
 
     /*
-    Metodo RegistrarEstudiante se encarga de resgistrar estudiantes, pidiendo el nombre y programa al que pertenece,
-    el ID se generar automaticamente basando en el valor del contador.
-    ademas muestra el registro una vez queda hecho y valida si ya se registro el limite de datos disponibles el array estudiante
-    */
+     * Metodo RegistrarEstudiante se encarga de resgistrar estudiantes, pidiendo el
+     * nombre y programa al que pertenece,
+     * el ID se generar automaticamente basando en el valor del contador.
+     * ademas muestra el registro una vez queda hecho y valida si ya se registro el
+     * limite de datos disponibles el array estudiante
+     */
     public static void RegistrarEstudiante() {
 
         Scanner sc = new Scanner(System.in);
@@ -118,10 +133,12 @@ de una iteración usando el metodo foreach
 
 }
 
-/* 
-Creación de Objeto Estudiante para estructura de datos a guardar como estudiantes,
-Se sobreescribio el metodo toString para mostrar de manera personalizada la información
-*/
+/*
+ * Creación de Objeto Estudiante para estructura de datos a guardar como
+ * estudiantes,
+ * Se sobreescribio el metodo toString para mostrar de manera personalizada la
+ * información
+ */
 class Estudiante {
     String ID;
     String Nombre;
